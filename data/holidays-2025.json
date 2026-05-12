@@ -1,0 +1,623 @@
+{
+  "generatedAt": "2026-05-12T08:15:49Z",
+  "year": 2025,
+  "regions": [
+    "CN_MAINLAND",
+    "CN_TAIWAN",
+    "CN_HONGKONG"
+  ],
+  "days": [
+    {
+      "region": "CN_HONGKONG",
+      "date": "2025-01-01",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "The first day of January",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_MAINLAND",
+      "date": "2025-01-01",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "元旦",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_TAIWAN",
+      "date": "2025-01-01",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "開國紀念日",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_MAINLAND",
+      "date": "2025-01-26",
+      "year": 2025,
+      "type": "MAKEUP_WORKDAY",
+      "name": "春节调班工作日",
+      "isHoliday": false,
+      "isWorkday": true,
+      "adjust": {
+        "type": "WORK_FOR_REST",
+        "relatedDate": "2025-02-04",
+        "relatedType": "HOLIDAY",
+        "description": "1月26日（周日）上班，换取2月4日休息"
+      }
+    },
+    {
+      "region": "CN_TAIWAN",
+      "date": "2025-01-27",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "農曆除夕",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_MAINLAND",
+      "date": "2025-01-28",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "春节",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_TAIWAN",
+      "date": "2025-01-28",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "春節",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_HONGKONG",
+      "date": "2025-01-29",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "Lunar New Year’s Day",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_MAINLAND",
+      "date": "2025-01-29",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "春节",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_TAIWAN",
+      "date": "2025-01-29",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "春節",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_HONGKONG",
+      "date": "2025-01-30",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "農曆年初二",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_MAINLAND",
+      "date": "2025-01-30",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "春节",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_TAIWAN",
+      "date": "2025-01-30",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "春節",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_HONGKONG",
+      "date": "2025-01-31",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "農曆年初三",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_MAINLAND",
+      "date": "2025-01-31",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "春节",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_TAIWAN",
+      "date": "2025-01-31",
+      "year": 2025,
+      "type": "MAKEUP_REST_DAY",
+      "name": "春節假期",
+      "isHoliday": true,
+      "isWorkday": false,
+      "adjust": {
+        "type": "REST_FROM_WORK",
+        "relatedDate": "",
+        "relatedType": "MAKEUP_WORKDAY",
+        "description": "補假/彈性放假: 春節假期"
+      }
+    },
+    {
+      "region": "CN_MAINLAND",
+      "date": "2025-02-01",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "春节",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_MAINLAND",
+      "date": "2025-02-02",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "春节",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_MAINLAND",
+      "date": "2025-02-03",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "春节",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_MAINLAND",
+      "date": "2025-02-04",
+      "year": 2025,
+      "type": "MAKEUP_REST_DAY",
+      "name": "春节调班休息日",
+      "isHoliday": true,
+      "isWorkday": false,
+      "adjust": {
+        "type": "REST_FROM_WORK",
+        "relatedDate": "2025-01-26",
+        "relatedType": "MAKEUP_WORKDAY",
+        "description": "来源于1月26日补班"
+      }
+    },
+    {
+      "region": "CN_MAINLAND",
+      "date": "2025-02-08",
+      "year": 2025,
+      "type": "MAKEUP_WORKDAY",
+      "name": "春节调班工作日",
+      "isHoliday": false,
+      "isWorkday": true,
+      "adjust": {
+        "type": "WORK_FOR_REST",
+        "relatedDate": "2025-02-04",
+        "relatedType": "HOLIDAY",
+        "description": "2月8日（周六）上班"
+      }
+    },
+    {
+      "region": "CN_TAIWAN",
+      "date": "2025-02-28",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "和平紀念日",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_HONGKONG",
+      "date": "2025-04-04",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "清明節",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_MAINLAND",
+      "date": "2025-04-04",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "清明节",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_TAIWAN",
+      "date": "2025-04-04",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "兒童節",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_MAINLAND",
+      "date": "2025-04-05",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "清明节",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_TAIWAN",
+      "date": "2025-04-05",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "清明節",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_MAINLAND",
+      "date": "2025-04-06",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "清明节",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_HONGKONG",
+      "date": "2025-04-18",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "耶穌受難節",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_HONGKONG",
+      "date": "2025-04-19",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "耶穌受難節翌日",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_HONGKONG",
+      "date": "2025-04-21",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "復活節星期一",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_MAINLAND",
+      "date": "2025-04-27",
+      "year": 2025,
+      "type": "MAKEUP_WORKDAY",
+      "name": "劳动节调班工作日",
+      "isHoliday": false,
+      "isWorkday": true,
+      "adjust": {
+        "type": "WORK_FOR_REST",
+        "relatedDate": "2025-05-02",
+        "relatedType": "HOLIDAY",
+        "description": "4月27日上班换5月2日休息"
+      }
+    },
+    {
+      "region": "CN_HONGKONG",
+      "date": "2025-05-01",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "勞動節",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_MAINLAND",
+      "date": "2025-05-01",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "劳动节",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_TAIWAN",
+      "date": "2025-05-01",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "勞動節",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_MAINLAND",
+      "date": "2025-05-02",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "劳动节",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_MAINLAND",
+      "date": "2025-05-03",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "劳动节",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_MAINLAND",
+      "date": "2025-05-04",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "劳动节",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_HONGKONG",
+      "date": "2025-05-05",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "The Birthday of the Buddha",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_MAINLAND",
+      "date": "2025-05-05",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "劳动节",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_MAINLAND",
+      "date": "2025-05-30",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "端午节",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_HONGKONG",
+      "date": "2025-05-31",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "端午節",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_MAINLAND",
+      "date": "2025-05-31",
+      "year": 2025,
+      "type": "MAKEUP_WORKDAY",
+      "name": "端午节调班工作日",
+      "isHoliday": false,
+      "isWorkday": true,
+      "adjust": {
+        "type": "WORK_FOR_REST",
+        "relatedDate": "2025-06-02",
+        "relatedType": "HOLIDAY",
+        "description": "5月31日上班换6月2日休息"
+      }
+    },
+    {
+      "region": "CN_TAIWAN",
+      "date": "2025-05-31",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "端午節",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_MAINLAND",
+      "date": "2025-06-02",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "端午节",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_HONGKONG",
+      "date": "2025-07-01",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "香港特別行政區成立紀念日",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_MAINLAND",
+      "date": "2025-09-28",
+      "year": 2025,
+      "type": "MAKEUP_WORKDAY",
+      "name": "中秋节/国庆节调班工作日",
+      "isHoliday": false,
+      "isWorkday": true,
+      "adjust": {
+        "type": "WORK_FOR_REST",
+        "relatedDate": "2025-10-07",
+        "relatedType": "HOLIDAY",
+        "description": "9月28日上班"
+      }
+    },
+    {
+      "region": "CN_HONGKONG",
+      "date": "2025-10-01",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "國慶日",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_MAINLAND",
+      "date": "2025-10-01",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "国庆节",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_MAINLAND",
+      "date": "2025-10-02",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "国庆节",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_MAINLAND",
+      "date": "2025-10-03",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "国庆节",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_MAINLAND",
+      "date": "2025-10-04",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "中秋节",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_MAINLAND",
+      "date": "2025-10-05",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "国庆节",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_MAINLAND",
+      "date": "2025-10-06",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "国庆节",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_TAIWAN",
+      "date": "2025-10-06",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "中秋節",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_HONGKONG",
+      "date": "2025-10-07",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "中秋節翌日",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_MAINLAND",
+      "date": "2025-10-07",
+      "year": 2025,
+      "type": "MAKEUP_REST_DAY",
+      "name": "国庆节调班休息日",
+      "isHoliday": true,
+      "isWorkday": false,
+      "adjust": {
+        "type": "REST_FROM_WORK",
+        "relatedDate": "2025-09-28",
+        "relatedType": "MAKEUP_WORKDAY",
+        "description": "来源于9月28日补班"
+      }
+    },
+    {
+      "region": "CN_TAIWAN",
+      "date": "2025-10-10",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "國慶日",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_MAINLAND",
+      "date": "2025-10-11",
+      "year": 2025,
+      "type": "MAKEUP_WORKDAY",
+      "name": "国庆节调班工作日",
+      "isHoliday": false,
+      "isWorkday": true,
+      "adjust": {
+        "type": "WORK_FOR_REST",
+        "relatedDate": "2025-10-07",
+        "relatedType": "HOLIDAY",
+        "description": "10月11日上班"
+      }
+    },
+    {
+      "region": "CN_HONGKONG",
+      "date": "2025-10-29",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "重陽節",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_HONGKONG",
+      "date": "2025-12-25",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "聖誕節",
+      "isHoliday": true,
+      "isWorkday": false
+    },
+    {
+      "region": "CN_HONGKONG",
+      "date": "2025-12-26",
+      "year": 2025,
+      "type": "HOLIDAY",
+      "name": "聖誕節後第一個周日",
+      "isHoliday": true,
+      "isWorkday": false
+    }
+  ]
+}

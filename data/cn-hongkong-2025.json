@@ -1,0 +1,155 @@
+[
+  {
+    "region": "CN_HONGKONG",
+    "date": "2025-01-01",
+    "year": 2025,
+    "type": "HOLIDAY",
+    "name": "The first day of January",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_HONGKONG",
+    "date": "2025-01-29",
+    "year": 2025,
+    "type": "HOLIDAY",
+    "name": "Lunar New Year’s Day",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_HONGKONG",
+    "date": "2025-01-30",
+    "year": 2025,
+    "type": "HOLIDAY",
+    "name": "農曆年初二",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_HONGKONG",
+    "date": "2025-01-31",
+    "year": 2025,
+    "type": "HOLIDAY",
+    "name": "農曆年初三",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_HONGKONG",
+    "date": "2025-04-04",
+    "year": 2025,
+    "type": "HOLIDAY",
+    "name": "清明節",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_HONGKONG",
+    "date": "2025-04-18",
+    "year": 2025,
+    "type": "HOLIDAY",
+    "name": "耶穌受難節",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_HONGKONG",
+    "date": "2025-04-19",
+    "year": 2025,
+    "type": "HOLIDAY",
+    "name": "耶穌受難節翌日",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_HONGKONG",
+    "date": "2025-04-21",
+    "year": 2025,
+    "type": "HOLIDAY",
+    "name": "復活節星期一",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_HONGKONG",
+    "date": "2025-05-01",
+    "year": 2025,
+    "type": "HOLIDAY",
+    "name": "勞動節",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_HONGKONG",
+    "date": "2025-05-05",
+    "year": 2025,
+    "type": "HOLIDAY",
+    "name": "The Birthday of the Buddha",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_HONGKONG",
+    "date": "2025-05-31",
+    "year": 2025,
+    "type": "HOLIDAY",
+    "name": "端午節",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_HONGKONG",
+    "date": "2025-07-01",
+    "year": 2025,
+    "type": "HOLIDAY",
+    "name": "香港特別行政區成立紀念日",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_HONGKONG",
+    "date": "2025-10-01",
+    "year": 2025,
+    "type": "HOLIDAY",
+    "name": "國慶日",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_HONGKONG",
+    "date": "2025-10-07",
+    "year": 2025,
+    "type": "HOLIDAY",
+    "name": "中秋節翌日",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_HONGKONG",
+    "date": "2025-10-29",
+    "year": 2025,
+    "type": "HOLIDAY",
+    "name": "重陽節",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_HONGKONG",
+    "date": "2025-12-25",
+    "year": 2025,
+    "type": "HOLIDAY",
+    "name": "聖誕節",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_HONGKONG",
+    "date": "2025-12-26",
+    "year": 2025,
+    "type": "HOLIDAY",
+    "name": "聖誕節後第一個周日",
+    "isHoliday": true,
+    "isWorkday": false
+  }
+]

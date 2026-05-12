@@ -1,0 +1,125 @@
+[
+  {
+    "region": "CN_TAIWAN",
+    "date": "2025-01-01",
+    "year": 2025,
+    "type": "HOLIDAY",
+    "name": "開國紀念日",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_TAIWAN",
+    "date": "2025-01-27",
+    "year": 2025,
+    "type": "HOLIDAY",
+    "name": "農曆除夕",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_TAIWAN",
+    "date": "2025-01-28",
+    "year": 2025,
+    "type": "HOLIDAY",
+    "name": "春節",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_TAIWAN",
+    "date": "2025-01-29",
+    "year": 2025,
+    "type": "HOLIDAY",
+    "name": "春節",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_TAIWAN",
+    "date": "2025-01-30",
+    "year": 2025,
+    "type": "HOLIDAY",
+    "name": "春節",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_TAIWAN",
+    "date": "2025-01-31",
+    "year": 2025,
+    "type": "MAKEUP_REST_DAY",
+    "name": "春節假期",
+    "isHoliday": true,
+    "isWorkday": false,
+    "adjust": {
+      "type": "REST_FROM_WORK",
+      "relatedDate": "",
+      "relatedType": "MAKEUP_WORKDAY",
+      "description": "補假/彈性放假: 春節假期"
+    }
+  },
+  {
+    "region": "CN_TAIWAN",
+    "date": "2025-02-28",
+    "year": 2025,
+    "type": "HOLIDAY",
+    "name": "和平紀念日",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_TAIWAN",
+    "date": "2025-04-04",
+    "year": 2025,
+    "type": "HOLIDAY",
+    "name": "兒童節",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_TAIWAN",
+    "date": "2025-04-05",
+    "year": 2025,
+    "type": "HOLIDAY",
+    "name": "清明節",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_TAIWAN",
+    "date": "2025-05-01",
+    "year": 2025,
+    "type": "HOLIDAY",
+    "name": "勞動節",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_TAIWAN",
+    "date": "2025-05-31",
+    "year": 2025,
+    "type": "HOLIDAY",
+    "name": "端午節",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_TAIWAN",
+    "date": "2025-10-06",
+    "year": 2025,
+    "type": "HOLIDAY",
+    "name": "中秋節",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_TAIWAN",
+    "date": "2025-10-10",
+    "year": 2025,
+    "type": "HOLIDAY",
+    "name": "國慶日",
+    "isHoliday": true,
+    "isWorkday": false
+  }
+]

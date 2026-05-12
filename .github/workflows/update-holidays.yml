@@ -1,0 +1,284 @@
+name: 更新大中华区节假日数据
+
+# ═══════════════════════════════════════════════════
+# 定时策略：高频探测 + 智能更新
+#
+# 阶段一（探测期）：
+#   11月1日~12月15日，每3天自动运行一次，持续搜索国务院次年通知
+#   一旦抓到官方正文 → 自动替换回退数据 → 后续仅在有变更时才提交
+#
+# 阶段二（最终确认）：
+#   12月15日做最终确认，确保次年数据在元旦假期前到位
+#
+# 阶段三（手动）：
+#   workflow_dispatch 随时触发，可指定年份和地区
+# ═══════════════════════════════════════════════════
+
+on:
+  # ── 探测期：11月~12月中旬 ──
+  # 每3天运行一次，搜索国务院是否已发布次年通知
+  schedule:
+    # 11 月起每3天探测（1/4/7/10/13/16/19/22/25/28 日）
+    - cron: '0 3 1,4,7,10,13,16,19,22,25,28 11 *'
+    # 12 月继续探测到15日（1/4/7/10/13 日），然后15日最终确认
+    - cron: '0 3 1,4,7,10,13,15 12 *'
+
+  # 手动触发
+  workflow_dispatch:
+    inputs:
+      year:
+        description: '目标年份（留空则自动判断）'
+        required: false
+        default: ''
+      regions:
+        description: '采集地区（all / mainland / taiwan / hongkong）'
+        required: false
+        default: 'all'
+      force:
+        description: '强制提交（即使数据无变化也提交）'
+        required: false
+        default: 'false'
+
+jobs:
+  fetch-holidays:
+    name: 采集节假日数据
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    permissions:
+      contents: write
+
+    steps:
+      # ── 1. 检出代码 ────────────────────────────────────────
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # ── 2. 设置 Python ────────────────────────────────────
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # ── 3. 安装依赖 ────────────────────────────────────────
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # ── 4. 确定目标年份 ────────────────────────────────────
+      - name: Determine target year
+        id: target_year
+        run: |
+          if [ -n "${{ github.event.inputs.year }}" ]; then
+            YEAR="${{ github.event.inputs.year }}"
+          else
+            MONTH=$(date -u +%m)
+            CURRENT_YEAR=$(date -u +%Y)
+            # 11月/12月 → 采集次年；其他月份 → 采集当年
+            if [ "$MONTH" = "11" ] || [ "$MONTH" = "12" ]; then
+              YEAR=$((CURRENT_YEAR + 1))
+            else
+              YEAR=$CURRENT_YEAR
+            fi
+          fi
+          echo "year=$YEAR" >> $GITHUB_OUTPUT
+          echo "📅 目标年份: ${YEAR}"
+          echo "📆 当前时间: $(date -u '+%Y-%m-%d %H:%M UTC')"
+
+      # ── 5. 采集大陆数据 ───────────────────────────────────
+      - name: 🇨🇳 采集中国大陆节假日
+        if: >
+          github.event.inputs.regions == 'all' ||
+          github.event.inputs.regions == 'mainland' ||
+          github.event.inputs.regions == ''
+        run: |
+          echo ">>> 开始采集大陆 ${YEAR} 年数据..."
+          python scripts/fetch_mainland.py \
+            --year ${{ steps.target_year.outputs.year }} \
+            --output data/cn-mainland-${{ steps.target_year.outputs.year }}.json
+          echo ">>> 大陆采集完成"
+        env:
+          YEAR: ${{ steps.target_year.outputs.year }}
+        continue-on-error: true
+
+      # ── 6. 采集台湾数据 ───────────────────────────────────
+      - name: 🇹🇼 采集台湾节假日
+        if: >
+          github.event.inputs.regions == 'all' ||
+          github.event.inputs.regions == 'taiwan' ||
+          github.event.inputs.regions == ''
+        run: |
+          echo ">>> 开始采集台湾 ${YEAR} 年数据..."
+          python scripts/fetch_taiwan.py \
+            --year ${{ steps.target_year.outputs.year }} \
+            --output data/cn-taiwan-${{ steps.target_year.outputs.year }}.json
+          echo ">>> 台湾采集完成"
+        env:
+          YEAR: ${{ steps.target_year.outputs.year }}
+        continue-on-error: true
+
+      # ── 7. 采集香港数据 ───────────────────────────────────
+      - name: 🇭🇰 采集香港节假日
+        if: >
+          github.event.inputs.regions == 'all' ||
+          github.event.inputs.regions == 'hongkong' ||
+          github.event.inputs.regions == ''
+        run: |
+          echo ">>> 开始采集香港 ${YEAR} 年数据..."
+          python scripts/fetch_hongkong.py \
+            --year ${{ steps.target_year.outputs.year }} \
+            --output data/cn-hongkong-${{ steps.target_year.outputs.year }}.json
+          echo ">>> 香港采集完成"
+        env:
+          YEAR: ${{ steps.target_year.outputs.year }}
+        continue-on-error: true
+
+      # ── 8. 合并所有地区数据 ────────────────────────────────
+      - name: 合并三地数据
+        run: |
+          python scripts/fetch_all.py \
+            --year ${{ steps.target_year.outputs.year }} \
+            --output-dir data/
+
+      # ── 9. 校验输出文件 & 判断数据来源 ──────────────────────
+      - name: 校验输出 & 分析数据质量
+        id: validate
+        run: |
+          python - <<'PYEOF'
+          import json, os, sys
+
+          year = "${{ steps.target_year.outputs.year }}"
+          errors = []
+          has_mainland_official = False
+          total_records = 0
+
+          files_info = {
+              f"data/cn-mainland-{year}.json": ("大陆", True),
+              f"data/cn-taiwan-{year}.json": ("台湾", False),
+              f"data/cn-hongkong-{year}.json": ("香港", False),
+              f"data/holidays-{year}.json": ("合并", False),
+              "data/latest.json": ("最新", False),
+          }
+
+          for path, (label, check_mainland) in files_info.items():
+              if not os.path.exists(path):
+                  errors.append(f"❌ {label}: {path} 文件不存在")
+                  continue
+              try:
+                  data = json.load(open(path))
+                  count = len(data.get("days", data) if isinstance(data, dict) else data)
+                  total_records += count
+                  
+                  source_hint = ""
+                  if isinstance(data, dict) and "days" in data and check_mainland:
+                      # 检测大陆数据是否有 adjust 字段（有=官方正文解析，无=回退）
+                      has_adj = any(d.get("adjust") for d in data["days"])
+                      if has_adj:
+                          source_hint = " ✅ (含调班信息)"
+                          has_mainland_official = True
+                      else:
+                          source_hint = " ⚠️ (可能为回退数据)"
+
+                  print(f"  ✓ {label}: {path}  [{count} 条]{source_hint}")
+              except json.JSONDecodeError as e:
+                  errors.append(f"❌ {label}: JSON 解析失败 - {e}")
+
+          print()
+          if errors:
+              print("⚠️ 问题:")
+              for e in errors:
+                  print(f"  {e}")
+
+          print(f"\n📊 总计: {total_records} 条")
+          print(f"🔍 大陆数据来源: {'✅ 官方正文' if has_mainland_official else '⚠️ 回退数据'}")
+
+          # 输出供后续步骤使用
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+              f.write(f'official={str(has_mainland_official).lower()}\n')
+              f.write(f'total={total_records}\n')
+          PYEOF
+
+      # ── 10. 提交并推送（智能去重） ──────────────────────────
+      - name: Commit and push data
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+          git add data/
+
+          FORCE="${{ github.event.inputs.force || 'false' }}"
+          
+          if git diff --cached --quiet; then
+            if [ "$FORCE" = "true" ]; then
+              # 强制模式：无变化也 touch 一个标记文件
+              echo "$(date -u '+%Y-%m-%dT%H:%MZ')" > .last-run-timestamp
+              git add .last-run-timestamp
+              YEAR="${{ steps.target_year.outputs.year }}"
+              DATE=$(date -u +%Y-%m-%d)
+              git commit -m "chore(data): 定时检查 ${YEAR} 年数据（无变化）[${DATE}]"
+              git push
+              echo "ℹ️  数据无变更，强制提交了时间戳"
+            else
+              echo "ℹ️  数据无变更，跳过提交（使用 force=true 可强制提交）"
+            fi
+          else
+            YEAR="${{ steps.target_year.outputs.year }}"
+            DATE=$(date -u +%Y-%m-%d)
+            IS_OFFICIAL="${{ steps.validate.outputs.official }}"
+            
+            if [ "$IS_OFFICIAL" = "true" ]; then
+              MSG="chore(data): 🎉 获取到国务院官方通知！${YEAR} 年大陆数据已从正文解析 [${DATE}]"
+            else
+              MSG="chore(data): 更新 ${YEAR} 年大中华区节假日数据 [${DATE}]"
+            fi
+            
+            git commit -m "$MSG"
+            git push
+            echo "✅ 数据已推送"
+          fi
+
+      # ── 11. Summary 报告 ────────────────────────────────────
+      - name: 生成报告
+        if: always()
+        run: |
+          YEAR="${{ steps.target_year.outputs.year }}"
+          OFFICIAL="${{ steps.validate.outputs.official || 'unknown' }}"
+          TOTAL="${{ steps.validate.outputs.total || '?' }}"
+          
+          cat >> $GITHUB_STEP_SUMMARY <<EOF
+          ## 🗓️ 大中华区节假日数据更新报告
+          
+          | 项目 | 值 |
+          |------|-----|
+          | **目标年份** | ${YEAR} |
+          | **总记录数** | ${TOTAL} |
+          | **大陆来源** | ${OFFICIAL=='true' && '✅ 官方正文' || OFFICIAL=='false' && '⚠️ 回退数据' || '❓ 未知'} |
+          | **运行时间** | $(date -u '+%Y-%m-%d %H:%M UTC') |
+          
+          ### 各地区数据
+          EOF
+
+          for REGION in cn-mainland cn-taiwan cn-hongkong; do
+            FILE="data/${REGION}-${YEAR}.json"
+            FLAG="🇨🇳"
+            case "$REGION" in
+              cn-mainland) FLAG="🇨🇳" ;;
+              cn-taiwan)   FLAG="🇹🇼" ;;
+              cn-hongkong) FLAG="🇭🇰" ;;
+            esac
+            
+            if [ -f "$FILE" ]; then
+              COUNT=$(python3 -c "import json;d=json.load(open('$FILE'));print(len(d) if isinstance(d,list) else len(d.get('days',[])))" 2>/dev/null || echo "?")
+              echo "| ${FLAG} ${REGION} | \`${FILE}\` | ✅ ${COUNT} 条 |" >> $GITHUB_STEP_SUMMARY
+            else
+              echo "| ${FLAG} ${REGION} | \`${FILE}\` | ❌ 未生成 |" >> $GITHUB_STEP_SUMMARY
+            fi
+          done
+          
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "$OFFICIAL" = "true" ]; then
+            echo "> ✅ **好消息**：已成功获取到国务院官方通知正文，大陆数据来自权威源！" >> $GITHUB_STEP_SUMMARY
+          elif [ "$OFFICIAL" = "false" ]; then
+            echo "> ⚠️ **注意**：大陆数据当前为内置回退数据。国务院通知通常在 10月下旬~11月中旬发布，后续定时任务会持续探测并自动更新。" >> $GITHUB_STEP_SUMMARY
+          fi

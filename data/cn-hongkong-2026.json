@@ -1,0 +1,155 @@
+[
+  {
+    "region": "CN_HONGKONG",
+    "date": "2026-01-01",
+    "year": 2026,
+    "type": "HOLIDAY",
+    "name": "元旦",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_HONGKONG",
+    "date": "2026-02-17",
+    "year": 2026,
+    "type": "HOLIDAY",
+    "name": "農曆年初一",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_HONGKONG",
+    "date": "2026-02-18",
+    "year": 2026,
+    "type": "HOLIDAY",
+    "name": "農曆年初二",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_HONGKONG",
+    "date": "2026-02-19",
+    "year": 2026,
+    "type": "HOLIDAY",
+    "name": "農曆年初三",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_HONGKONG",
+    "date": "2026-04-03",
+    "year": 2026,
+    "type": "HOLIDAY",
+    "name": "耶穌受難節",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_HONGKONG",
+    "date": "2026-04-04",
+    "year": 2026,
+    "type": "HOLIDAY",
+    "name": "耶穌受難節翌日",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_HONGKONG",
+    "date": "2026-04-06",
+    "year": 2026,
+    "type": "HOLIDAY",
+    "name": "清明節翌日",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_HONGKONG",
+    "date": "2026-04-07",
+    "year": 2026,
+    "type": "HOLIDAY",
+    "name": "復活節星期一翌日",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_HONGKONG",
+    "date": "2026-05-01",
+    "year": 2026,
+    "type": "HOLIDAY",
+    "name": "勞動節",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_HONGKONG",
+    "date": "2026-05-25",
+    "year": 2026,
+    "type": "HOLIDAY",
+    "name": "佛誕翌日",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_HONGKONG",
+    "date": "2026-06-19",
+    "year": 2026,
+    "type": "HOLIDAY",
+    "name": "端午節",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_HONGKONG",
+    "date": "2026-07-01",
+    "year": 2026,
+    "type": "HOLIDAY",
+    "name": "香港特別行政區成立紀念日",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_HONGKONG",
+    "date": "2026-09-26",
+    "year": 2026,
+    "type": "HOLIDAY",
+    "name": "中秋節翌日",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_HONGKONG",
+    "date": "2026-10-01",
+    "year": 2026,
+    "type": "HOLIDAY",
+    "name": "國慶日",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_HONGKONG",
+    "date": "2026-10-19",
+    "year": 2026,
+    "type": "HOLIDAY",
+    "name": "重陽節翌日",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_HONGKONG",
+    "date": "2026-12-25",
+    "year": 2026,
+    "type": "HOLIDAY",
+    "name": "聖誕節",
+    "isHoliday": true,
+    "isWorkday": false
+  },
+  {
+    "region": "CN_HONGKONG",
+    "date": "2026-12-26",
+    "year": 2026,
+    "type": "HOLIDAY",
+    "name": "聖誕節後第一個周日",
+    "isHoliday": true,
+    "isWorkday": false
+  }
+]
